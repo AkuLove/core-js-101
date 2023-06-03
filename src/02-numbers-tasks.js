@@ -52,7 +52,7 @@ function getCircleCircumference(radius) {
  *  -3, 3  => 0
  */
 function getAverage(value1, value2) {
-  return value2 / 2 + value1 / 2
+  return value2 / 2 + value1 / 2;
 }
 
 /**
@@ -71,7 +71,7 @@ function getAverage(value1, value2) {
  *   (-5,0) (10,-10) => 18.027756377319946
  */
 function getDistanceBetweenPoints(x1, y1, x2, y2) {
-  return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2))
+  return Math.sqrt(((x2 - x1) ** 2) + ((y2 - y1) ** 2));
 }
 
 /**
@@ -110,7 +110,7 @@ function getLinearEquationRoot(a, b) {
  *   (0,1) (1,2)     => 0
  */
 function getAngleBetweenVectors(x1, y1, x2, y2) {
-  return Math.acos(x1 * x2 + y1 * y2 - (Math.sqrt(x1 * y1) + Math.sqrt(x2 *y2)))
+  return Math.acos(x1 * x2 + y1 * y2 - (Math.sqrt(x1 * y1) + Math.sqrt(x2 * y2)));
 }
 
 /**
@@ -159,7 +159,7 @@ function parseNumberFromString(value) {
  *   1,2,3   => 3.741657386773941
  */
 function getParallelepipedDiagonal(a, b, c) {
-  return Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2) + Math.pow(c, 2));
+  return Math.sqrt((a ** 2) + (b ** 2) + (c ** 2));
 }
 
 
@@ -181,10 +181,10 @@ function getParallelepipedDiagonal(a, b, c) {
  *   1678, 3  => 2000
  */
 function roundToPowerOfTen(num, pow) {
-  if (num % Math.pow(10, pow) >= 5 * Math.pow(10, pow - 1)) {
-    return num + ( Math.pow(10, pow) - num % Math.pow(10, pow));
-}
-  return num - (num % Math.pow(10, pow));
+  if (num % (10 ** pow) >= 5 * (10 ** (pow - 1))) {
+    return num + ((10 ** pow) - (num % (10 ** pow)));
+  }
+  return num - (num % (10 ** pow));
 }
 
 /**
@@ -205,10 +205,9 @@ function roundToPowerOfTen(num, pow) {
  *   17 => true
  */
 function isPrime(n) {
-  for (let i = 2; i < n / 2 + 1; i++) {
-    if (n % i == 0)
-        return false;
-}
+  for (let i = 2; i < n / 2 + 1; i += 1) {
+    if (n % i === 0) { return false; }
+  }
   return n !== 1;
 }
 
@@ -228,7 +227,7 @@ function isPrime(n) {
  *   toNumber(new Number(42), 0) => 42
  */
 function toNumber(value, def) {
-  return typeof +value == 'number' && !isNaN(+value) ? +value : def;
+  return typeof +value === 'number' && !Number.isNaN(+value) ? +value : def;
 }
 
 module.exports = {

@@ -19,7 +19,7 @@
  *   '',  'bb'  => 'bb'
  */
 function concatenateStrings(value1, value2) {
-  return value1 + value2
+  return value1 + value2;
 }
 
 
@@ -35,7 +35,7 @@ function concatenateStrings(value1, value2) {
  *   ''      => 0
  */
 function getStringLength(value) {
-  return value.length
+  return value.length;
 }
 
 /**
@@ -52,7 +52,7 @@ function getStringLength(value) {
  *   'Chuck','Norris'  => 'Hello, Chuck Norris!'
  */
 function getStringFromTemplate(firstName, lastName) {
-  return `Hello, ${firstName} ${lastName}!`
+  return `Hello, ${firstName} ${lastName}!`;
 }
 
 /**
@@ -66,7 +66,7 @@ function getStringFromTemplate(firstName, lastName) {
  *   'Hello, Chuck Norris!' => 'Chuck Norris'
  */
 function extractNameFromTemplate(value) {
-  return value.substring(6, (value.length - 1))
+  return value.substring(7, (value.length - 1));
 }
 
 
@@ -111,7 +111,7 @@ function removeLeadingAndTrailingWhitespaces(value) {
  *   'cat', 3 => 'catcatcat'
  */
 function repeatString(value, count) {
-  value.repeat(count);
+  return value.repeat(count);
 }
 
 /**
@@ -203,8 +203,8 @@ function extractEmails(str) {
  *
  */
 function getRectangleString(width, height) {
-  let dash = '─'.repeat(width - 2);
-  return `┌${dash}┐\n` + `│${' '.repeat(width - 2)}│\n`.repeat(height - 2) + `└${dash}┘\n`;
+  const dash = '─'.repeat(width - 2);
+  return `┌${dash}┐\n${`│${' '.repeat(width - 2)}│\n`.repeat(height - 2)}└${dash}┘\n`;
 }
 
 
@@ -225,9 +225,9 @@ function getRectangleString(width, height) {
  *
  */
 function encodeToRot13(str) {
-  return str.replace(/[a-zA-Z]/g, function (char) {
-    return String.fromCharCode((char <= "Z" ? 90 : 122) >= (char = char.charCodeAt(0) + 13) ? char : char - 26);
-  });
+  const lettters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMabcdefghijklmnopqrstuvwxyzabcdefghijklm';
+
+  return str.replace(/[A-Z]/gi, (message) => lettters[lettters.indexOf(message) + 13]);
 }
 
 /**
@@ -244,7 +244,7 @@ function encodeToRot13(str) {
  *   isString(new String('test')) => true
  */
 function isString(value) {
-  return value ? typeof value.valueOf() == 'string' : false;
+  return value ? typeof value.valueOf() === 'string' : false;
 }
 
 
@@ -273,8 +273,8 @@ function isString(value) {
  *   'K♠' => 51
  */
 function getCardId(value) {
-  let suit = ['♣', '♦', '♥', '♠'];
-  let cards = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+  const suit = ['♣', '♦', '♥', '♠'];
+  const cards = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
   return cards.indexOf(value.slice(0, -1)) + suit.indexOf(value.slice(-1)) * cards.length;
 }
 
